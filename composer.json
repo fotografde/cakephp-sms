@@ -21,6 +21,6 @@
 		"installer-name": "Sms"
 	},
 	"suggest": {
-		"xi/sms": ">=1.0.0"
+		"xi/sms": ">=0.2.2"
 	}
 }
