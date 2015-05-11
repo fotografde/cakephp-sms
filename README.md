@@ -1,10 +1,11 @@
-# cakephp-sms
-Send SMS with CakePHP
+# CakePHP Sms Plugin
+Send SMS with CakePHP.
 
 ## Usage
 
 ``` php
 App::uses('CakeSms', 'Sms.Network/Sms');
+
 $CakeSms = new CakeSms('default');
 $CakeSms->to('+491234567890');
 $CakeSms->from('+841234567890');
@@ -17,7 +18,7 @@ Load plugin in Config/bootstrap.php
 
 ``` php
 CakePlugin::load('Sms');
-``` 
+```
 
 Create Config/sms.php
 
@@ -50,6 +51,7 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 	/**
 	 * Sends an SMS Through Clickatell
 	 * We could also consider using this library:: http://github.com/arcturial/clickatell
+	 *
 	 * @param CakeSms $sms
 	 * @return bool
 	 */
