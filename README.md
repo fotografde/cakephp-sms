@@ -1,4 +1,9 @@
 # CakePHP Sms Plugin
+[![Build Status](https://api.travis-ci.org/fotografde/cakephp-sms.svg)](https://travis-ci.org/fotografde/cakephp-sms)
+[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg)](https://php.net/)
+[![License](https://poser.pugx.org/fotografde/cakephp-sms/license)](https://packagist.org/packages/fotografde/cakephp-sms)
+[![Total Downloads](https://poser.pugx.org/fotografde/cakephp-sms/d/total)](https://packagist.org/packages/fotografde/cakephp-sms)
+
 Send SMS with CakePHP.
 
 ## Usage
