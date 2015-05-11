@@ -7,7 +7,7 @@ php:
 
 env:
   global:
-    - REPO_NAME=cakephp-setup
+    - REPO_NAME=cakephp-sms
     - PLUGIN_NAME=Sms
     - REQUIRE=""
 
