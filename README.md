@@ -11,10 +11,6 @@ $CakeSms->from('+841234567890');
 $CakeSms->send('Hello world!');
 ```
 
-## Installation via Composer
-@todo
-require xi-sms
-
 ## Configuration
 
 Load plugin in Config/bootstrap.php
@@ -33,7 +29,7 @@ class SmsConfig {
 }
 ```
 
-Implement a transport class under Lib/Network/Sms/ such as:
+Implement a transport class under Lib/Network/Sms/. We recommend implementing [Xi SMS](https://github.com/xi-project/xi-sms), this way for example:
 
 ``` php
 /**
