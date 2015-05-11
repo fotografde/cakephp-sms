@@ -17,7 +17,7 @@ class CakeSms {
 	 *
 	 * @var string|array
 	 */
-	protected $_config = array();
+	protected $_config = [];
 
 	/**
 	 * The class name used for SMS configuration.
@@ -31,7 +31,7 @@ class CakeSms {
 	 *
 	 * @var array
 	 */
-	protected $_to = array();
+	protected $_to = [];
 
 	/**
 	 * The phone number which the SMS is sent from
@@ -97,7 +97,7 @@ class CakeSms {
 	 *
 	 * @var array
 	 */
-	protected $_viewVars = array();
+	protected $_viewVars = [];
 
 	/**
 	 * Theme for the View
@@ -111,7 +111,7 @@ class CakeSms {
 	 *
 	 * @var array
 	 */
-	protected $_helpers = array();
+	protected $_helpers = [];
 
 	/**
 	 * Constructor
@@ -172,9 +172,9 @@ class CakeSms {
 			$config = $configs->{$config};
 		}
 		$this->_config = $config + $this->_config;
-		$simpleMethods = array(
+		$simpleMethods = [
 			'from', 'to', 'transport'
-		);
+		];
 		foreach ($simpleMethods as $method) {
 			if (isset($config[$method])) {
 				$this->$method($config[$method]);
@@ -239,7 +239,7 @@ class CakeSms {
 			$this->{$varName} = $phoneNumber;
 			return $this;
 		}
-		$list = array();
+		$list = [];
 		foreach ($phoneNumber as $value) {
 			$this->_validatePhoneNumber($value);
 			$list[] = $value;
@@ -299,7 +299,7 @@ class CakeSms {
 			$this->{$varName}[] = $phoneNumber;
 			return $this;
 		}
-		$list = array();
+		$list = [];
 		foreach ($phoneNumber as $value) {
 			$this->_validatePhoneNumber($value);
 			$list[] = $value;
@@ -373,13 +373,13 @@ class CakeSms {
 
 		$contents = $this->transportClass()->send($this);
 		if (!empty($this->_config['log'])) {
-			$config = array(
+			$config = [
 				'level' => LOG_DEBUG,
 				'scope' => 'email'
-			);
+			];
 			if ($this->_config['log'] !== true) {
 				if (!is_array($this->_config['log'])) {
-					$this->_config['log'] = array('level' => $this->_config['log']);
+					$this->_config['log'] = ['level' => $this->_config['log']];
 				}
 				$config = $this->_config['log'] + $config;
 			}
@@ -462,10 +462,10 @@ class CakeSms {
 	 */
 	public function template($template = false, $layout = false) {
 		if ($template === false) {
-			return array(
+			return [
 				'template' => $this->_template,
 				'layout' => $this->_layout
-			);
+			];
 		}
 		$this->_template = $template;
 		if ($layout !== false) {
@@ -552,10 +552,10 @@ class CakeSms {
 	 * @return $this
 	 */
 	public function reset() {
-		$this->_to = array();
+		$this->_to = [];
 		$this->_from = '';
 		$this->_message = '';
-		$this->_config = array();
+		$this->_config = [];
 		return $this;
 	}
 

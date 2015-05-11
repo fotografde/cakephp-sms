@@ -16,16 +16,16 @@ class CakeSmsTest extends CakeTestCase {
 	}
 
 	public function testSend4() {
-		$Transport = $this->getMock('SmsTransport', array('send'));
+		$Transport = $this->getMock('SmsTransport', ['send']);
 		$Transport->expects($this->once())
 			->method('send');
 
-		$View = $this->getMock('TestView', array('render'));
+		$View = $this->getMock('TestView', ['render']);
 		$View->expects($this->once())
 			->method('render')
 			->with('you_got_mail', 'my_layout');
 
-		$this->CakeSms = $this->getMock('CakeSms', array('transportClass', 'viewRenderClass'));
+		$this->CakeSms = $this->getMock('CakeSms', ['transportClass', 'viewRenderClass']);
 		$this->CakeSms->expects($this->once())
 			->method('transportClass')
 			->will($this->returnValue($Transport));
@@ -45,14 +45,14 @@ class CakeSmsTest extends CakeTestCase {
 	}
 
 	public function testSend3() {
-		$Transport = $this->getMock('SmsTransport', array('send'));
+		$Transport = $this->getMock('SmsTransport', ['send']);
 		$Transport->expects($this->once())
 			->method('send')
 			->with($this->callback(function($actual) {
 				return $actual->message() === 'hello hello';
 			}));
 
-		$this->CakeSms = $this->getMock('CakeSms', array('transportClass'));
+		$this->CakeSms = $this->getMock('CakeSms', ['transportClass']);
 		$this->CakeSms->expects($this->once())
 			->method('transportClass')
 			->will($this->returnValue($Transport));
@@ -104,33 +104,33 @@ class CakeSmsTest extends CakeTestCase {
 	}
 
 	public function testTo() {
-		$this->assertSame(array(), $this->CakeSms->to());
+		$this->assertSame([], $this->CakeSms->to());
 
 		$result = $this->CakeSms->to('+491234567890');
-		$expected = array('+491234567890');
+		$expected = ['+491234567890'];
 		$this->assertSame($expected, $this->CakeSms->to());
 		$this->assertSame($this->CakeSms, $result);
 
-		$list = array(
+		$list = [
 			'+491234567890',
 			'+49987654321',
-		);
+		];
 		$this->CakeSms->to($list);
-		$expected = array(
+		$expected = [
 			'+491234567890',
 			'+49987654321',
-		);
+		];
 		$this->assertSame($expected, $this->CakeSms->to());
 
 		$this->CakeSms->addTo('+4924682468');
-		$result = $this->CakeSms->addTo(array('+493690369', '+491357913579'));
-		$expected = array(
+		$result = $this->CakeSms->addTo(['+493690369', '+491357913579']);
+		$expected = [
 			'+491234567890',
 			'+49987654321',
 			'+4924682468',
 			'+493690369',
 			'+491357913579',
-		);
+		];
 		$this->assertSame($expected, $this->CakeSms->to());
 		$this->assertSame($this->CakeSms, $result);
 	}

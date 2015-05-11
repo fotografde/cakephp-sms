@@ -10,7 +10,7 @@ abstract class AbstractSmsTransport {
 	 *
 	 * @var array
 	 */
-	protected $_config = array();
+	protected $_config = [];
 
 	/**
 	 * Send SMS
