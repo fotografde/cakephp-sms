@@ -40,7 +40,7 @@ class CakeSmsTest extends CakeTestCase {
 
 		$this->assertEquals($View->layoutPath, 'Sms');
 		$this->assertEquals($View->viewPath, 'Sms');
-		$this->setExpectedException('MissingViewException', 'View file "Sms/you_got_mail.ctp" is missing.');
+		$this->setExpectedException('MissingViewException', 'View file "Sms' . DS . 'you_got_mail.ctp" is missing.');
 		$View->getViewFileName('you_got_mail');
 	}
 
