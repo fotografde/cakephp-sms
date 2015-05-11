@@ -42,9 +42,9 @@ Implement a transport class under Lib/Network/Sms/. We recommend implementing [X
  * Send SMS through SMS provider Clickatell
  */
 
-App::uses('AbstractSmsTransport', 'Sms.Network/Sms');
-
 use Xi\Sms\Gateway\ClickatellGateway;
+
+App::uses('AbstractSmsTransport', 'Sms.Network/Sms');
 
 class ClickatellSmsTransport extends AbstractSmsTransport {
 
@@ -55,13 +55,12 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 
 	/**
 	 * Sends an SMS Through Clickatell
-	 * We could also consider using this library:: http://github.com/arcturial/clickatell
+	 * We could also consider using this library: http://github.com/arcturial/clickatell
 	 *
 	 * @param CakeSms $sms
-	 * @return bool
+	 * @return bool Success
 	 */
 	public function send(CakeSms $sms) {
-
 		$gw = new ClickatellGateway(
 			self::CLICKATELL_API_ID,
 			self::CLICKATELL_USER,
