@@ -2,7 +2,7 @@
 	"name": "fotografde/cakephp-sms",
 	"type": "cakephp-plugin",
 	"description": "SMS Plugin for CakePHP",
-	"keywords": ["cakephp","sms"],
+	"keywords": ["cakephp","sms","short","message","mobile","cake","php"],
 	"homepage": "http://github.com/fotografde/cakephp-sms",
 	"license": "MIT",
 	"authors": [
@@ -12,6 +12,10 @@
 			"homepage": "http://fotograf.de"
 		}
 	],
+	"require": {
+		"composer/installers": "*",
+		"cakephp/cakephp": ">=2.6"
+	},
 	"extra": {
 		"installer-name": "Sms"
 	}
