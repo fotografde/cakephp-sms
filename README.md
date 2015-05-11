@@ -42,9 +42,9 @@ Implement a transport class under Lib/Network/Sms/. We recommend implementing [X
  * Send SMS through SMS provider Clickatell
  */
 
-App::uses('AbstractSmsTransport', 'Sms.Network/Sms');
-
 use Xi\Sms\Gateway\ClickatellGateway;
+
+App::uses('AbstractSmsTransport', 'Sms.Network/Sms');
 
 class ClickatellSmsTransport extends AbstractSmsTransport {
 
