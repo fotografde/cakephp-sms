@@ -19,5 +19,8 @@
 	},
 	"extra": {
 		"installer-name": "Sms"
+	},
+	"suggest": {
+		"xi/sms": "dev-master"
 	}
 }
