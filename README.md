@@ -17,6 +17,13 @@ $CakeSms->from('+841234567890');
 $CakeSms->send('Hello world!');
 ```
 
+## Installation via Composer
+``` javascript
+"require": {
+	"fotografde/cakephp-sms": ">=1.0.0"
+}
+```
+
 ## Configuration
 
 Load plugin in Config/bootstrap.php
