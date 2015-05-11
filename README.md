@@ -58,7 +58,6 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 	const CLICKATELL_API_ID = 'XXXX';
 	const CLICKATELL_USER = 'YYYY';
 	const CLICKATELL_PASSWORD = 'ZZZZ';
-	const CLICKATELL_API_URL = 'http://api.clickatell.com';
 
 	/**
 	 * Sends an SMS Through Clickatell
@@ -71,8 +70,7 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 		$gw = new ClickatellGateway(
 			self::CLICKATELL_API_ID,
 			self::CLICKATELL_USER,
-			self::CLICKATELL_PASSWORD,
-			self::CLICKATELL_API_URL
+			self::CLICKATELL_PASSWORD
 		);
 
 		$service = new Xi\Sms\SmsService($gw);
