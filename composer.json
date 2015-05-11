@@ -21,6 +21,6 @@
 		"installer-name": "Sms"
 	},
 	"suggest": {
-		"xi/sms": "dev-master"
+		"xi/sms": ">=1.0.0"
 	}
 }
