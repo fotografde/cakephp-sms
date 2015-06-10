@@ -77,13 +77,30 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 
 		$msg = new Xi\Sms\SmsMessage(
 			$sms->message(),
-			$sms->from(),
-			$sms->to()
+			self::parsePhoneNumber($sms->from()),
+			self::parsePhoneNumber($sms->to())
 		);
 
 		$response = $service->send($msg);
 
 		return !empty($response);
+	}
+	
+	/**
+	 * Parses a phone number to fit Clickatell requirements
+	 * from +49123[...] to 49123[...]
+	 *
+	 * @param string $phoneNumber
+	 * @return bool|string
+	 */
+	public static function parsePhoneNumber($phoneNumber) {
+		if (is_array($phoneNumber)) {
+			return array_map('self::parsePhoneNumber', $phoneNumber);
+		}
+		if (preg_match('/^\+([0-9]+)$/', (string) $phoneNumber, $matches)) {
+			return $matches[1];
+		}
+		return false;
 	}
 }
 ```
