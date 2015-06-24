@@ -90,7 +90,7 @@ class ClickatellSmsTransport extends AbstractSmsTransport {
 	 * Parses a phone number to fit Clickatell requirements
 	 * from +49123[...] to 49123[...]
 	 *
-	 * @param string $phoneNumber
+	 * @param array|string $phoneNumber
 	 * @return array|string|bool
 	 */
 	public static function parsePhoneNumber($phoneNumber) {
