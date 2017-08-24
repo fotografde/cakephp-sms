@@ -362,9 +362,6 @@ class CakeSms {
 	 * @throws SocketException
 	 */
 	public function send($content = null) {
-		if (empty($this->_from)) {
-			throw new SocketException(__d('cake_dev', 'From is not specified.'));
-		}
 		if (empty($this->_to)) {
 			throw new SocketException(__d('cake_dev', 'You need to specify at least one destination for to.'));
 		}
