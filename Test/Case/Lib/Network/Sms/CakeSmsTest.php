@@ -2,6 +2,10 @@
 App::uses('CakeSms', 'Sms.Network/Sms');
 App::uses('View', 'View');
 
+/**
+ * Class CakeSmsTest
+ * @property CakeSms $CakeSms
+ */
 class CakeSmsTest extends CakeTestCase {
 
 	public function setUp()
@@ -96,9 +100,15 @@ class CakeSmsTest extends CakeTestCase {
 		$this->CakeSms->to('123456789');
 	}
 
-	public function testFrom() {
-		$this->assertSame('', $this->CakeSms->from());
+	public function testFromSetEmpty() {
+		$this->CakeSms->from('');
+	}
 
+	public function testFromGetEmpty() {
+		$this->assertSame('', $this->CakeSms->from());
+	}
+
+	public function testFromGet() {
 		$this->CakeSms->from('+49123456789');
 		$this->assertSame('+49123456789', $this->CakeSms->from());
 	}

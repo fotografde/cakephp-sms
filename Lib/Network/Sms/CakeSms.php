@@ -211,6 +211,9 @@ class CakeSms {
 		if ($phoneNumber === null) {
 			return $this->_from;
 		}
+		if (empty($phoneNumber)) {
+			return $this;
+		}
 		return $this->_setPhoneNumber('_from', $phoneNumber);
 	}
 
