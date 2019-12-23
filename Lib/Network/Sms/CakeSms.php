@@ -48,6 +48,13 @@ class CakeSms {
 	protected $_message = '';
 
 	/**
+	 * Media objects
+	 *
+	 * @var array
+	 */
+	protected $_media = [];
+
+	/**
 	 * What method should the email be sent
 	 *
 	 * @var string
@@ -312,6 +319,26 @@ class CakeSms {
 	}
 
 	/**
+	 * Media objects
+	 *
+	 * @param string|array $mediaObject Null to get, String with URL to the media file,
+	 *   Array of media file URL's
+	 * @return array
+	 */
+	public function media($mediaObject = null) {
+		if ($mediaObject === null) {
+			return $this->_media;
+		}
+		$mediaObject = (array) $mediaObject;
+
+		foreach ($mediaObject as $url) {
+			if (filter_var($url, FILTER_VALIDATE_URL)) {
+				$this->_media[] = $url;
+			}
+		}
+	}
+
+	/**
 	 * Get generated message (used by transport classes)
 	 *
 	 * @return string
@@ -553,6 +580,7 @@ class CakeSms {
 	 */
 	public function reset() {
 		$this->_to = [];
+		$this->_media = [];
 		$this->_from = '';
 		$this->_message = '';
 		$this->_config = [];
